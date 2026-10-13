@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: MascotRL
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Yadav
+    given-names: Kartik
+license: MIT
+version: 0.1.0
+repository-code: "https://github.com/zauberstern/MascotRL"
+url: "https://zauberstern.github.io/MascotRL/"
