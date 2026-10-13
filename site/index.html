@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/MascotRL/">
+  <title>MascotRL</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#text">Skip to the text</a>
+  <div class="sheet">
+    <div class="paper" id="text">
+      <header class="mast"><a class="brand" href="index.html"><img src="assets/mascots/MascotRL_logo.png" alt="" width="72" height="72"><span class="wordmark">MascotRL</span></a><a class="paper-link" href="paper/xai_portfolio_rl.pdf">Working paper</a></header>
+      <h1>A fund needs a name you can check</h1>
+      <p>You buy a fund because of a sentence on the first page. It chases winners. It buys what just fell. It stays quiet when the market gets loud. That sentence is the promise.</p>
+      <p>Three people live by it. A compliance officer checks whether the fund drifted away from the promise. An investor checks whether this fund fills a hole in what they already own. After a bad year, a regulator asks whether the losses match the risk the fund said it would take. In Europe the promise is written into the fund's mandate. In the United States it is written on Form N-1A, and the Names Rule says the stocks in the fund have to back the words.</p>
+      <p>A learning machine skips the sentence. Each morning you get a list. This much in this stock. That much in the next. A number for how the day went. Did it chase, fade, or hide? The list does not say.</p>
+      <p>We read the list. The name we file is one you can set next to the stocks the fund actually held.</p>
+      <h2 id="names">Six habits</h2>
+      <p>We read each list and file it under one habit. A cheetah chases what has already been going up. A fox buys what has just been beaten down. A tortoise wants a quieter mix. A magpie crowds into a few exciting names. A hummingbird changes the mix when the market's mood changes. An owl is the rest: no single habit won.</p>
+      <div class="mosaic">
+        <a href="#trend-follower"><img src="assets/mascots/cheetah.png" alt="Cheetah, the trend follower." width="84" height="84"><span class="strategy">Trend follower</span><span class="nickname">Cheetah</span></a>
+        <a href="#contrarian"><img src="assets/mascots/fox.png" alt="Fox, the contrarian." width="84" height="84"><span class="strategy">Contrarian</span><span class="nickname">Fox</span></a>
+        <a href="#risk-manager"><img src="assets/mascots/tortoise.png" alt="Tortoise, the risk manager." width="84" height="84"><span class="strategy">Risk manager</span><span class="nickname">Tortoise</span></a>
+        <a href="#speculator"><img src="assets/mascots/magpie.png" alt="Magpie, the speculator." width="84" height="84"><span class="strategy">Speculator</span><span class="nickname">Magpie</span></a>
+        <a href="#tactical-rotator"><img src="assets/mascots/hummingbird.png" alt="Hummingbird, the tactical rotator." width="84" height="84"><span class="strategy">Tactical rotator</span><span class="nickname">Hummingbird</span></a>
+        <a href="#generalist"><img src="assets/mascots/owl.png" alt="Owl, the generalist." width="84" height="84"><span class="strategy">Generalist</span><span class="nickname">Owl</span></a>
+      </div>
+      <h2>Too close to "a bit of everything"</h2>
+      <p>If a book owns almost the same slice of every stock, it has no habit to name. We withhold the name when it sits within 12.5 percent of that even split. Owning a very different mix is a difference you can see. It is not, by itself, proof the book was clever.</p>
+      <h2>What the 179 books turned out to be</h2>
+      <p>179 books were different enough to name. The reading was locked before we counted, so the names were not adjusted after the fact. A habit has to lead the next habit by a clear margin, 0.25 on the score. If it does not, the book is an owl.</p>
+      <p>The count: 11 cheetahs, 32 foxes, 18 tortoises, 21 magpies, 19 hummingbirds, and 78 owls. Someone had already given 106 of the books a name by design. On a strict reading, that name and our reading matched 7 times.</p>
+      <table id="census">
+        <thead>
+          <tr>
+            <th>Personality</th>
+            <th class="num">Books</th>
+            <th class="num">Share</th>
+            <th class="num">$1 became</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="trend-follower"><td>Trend follower</td><td class="num">11</td><td class="num">6.1%</td><td class="num" data-end="cheetah"></td></tr>
+          <tr id="contrarian"><td>Contrarian</td><td class="num">32</td><td class="num">17.9%</td><td class="num" data-end="fox"></td></tr>
+          <tr id="risk-manager"><td>Risk manager</td><td class="num">18</td><td class="num">10.1%</td><td class="num" data-end="tortoise"></td></tr>
+          <tr id="speculator"><td>Speculator</td><td class="num">21</td><td class="num">11.7%</td><td class="num" data-end="magpie"></td></tr>
+          <tr id="tactical-rotator"><td>Tactical rotator</td><td class="num">19</td><td class="num">10.6%</td><td class="num" data-end="hummingbird"></td></tr>
+          <tr id="generalist"><td>Generalist</td><td class="num">78</td><td class="num">43.6%</td><td class="num" data-end="owl"></td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Start with one dollar in January 2014. The column is what that dollar became by December 2024, for one stored book of each habit. The gold line on the chart is the even split, the same amount in every stock.</p>
+      <div id="paths" class="chart"></div>
+      <h2>A small toll on every change</h2>
+      <p>Moving money from one stock to another is not free. We charge five basis points, five hundredths of one percent, on the amount moved. The book pays that toll while it is learning, and the same toll is on the path you see here. So it never practices in a world without costs and then meets costs only at the end.</p>
+      <p>On 105 books the toll that actually showed up was often a bit higher than five. About 6.5 basis points when the book can drop stocks to zero, about 10 when every stock keeps a crumb, about 13 when each score is capped and then the book is filled again.</p>
+      <h2>One decision, six parts</h2>
+      <p>Every book makes the same kind of decision. Yesterday's news comes in. A network turns it into a hunch for each stock. A reward says what "good" meant that day. A last step turns hunches into amounts of money, and some versions of that step can leave a stock at exactly zero while others always leave a crumb. Then the toll is charged. The next day, the network has been nudged by how that day went.</p>
+      <footer class="footer"><p>Results are backtested and are not investment advice.</p></footer>
+    </div>
+    <nav class="margin" aria-label="Pages">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="desk.html">Desk</a>
+      <a href="cube.html">Feature cube</a>
+      <a href="book.html">Book</a>
+    </nav>
+    <small class="credit">Silhouettes: Michaud, Sayol, Mauel, Jablunovsky, Sayol, Sayol. PhyloPic, CC0.</small>
+  </div>
+  <script src="vendor/plotly-basic.min.js"></script>
+  <script src="js/abstract.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/MascotRL/">
+  <title>Book. MascotRL</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#book">Skip to the score</a>
+  <div class="sheet">
+    <div class="paper" id="book">
+      <header class="mast"><a class="brand" href="index.html"><img src="assets/mascots/MascotRL_logo.png" alt="" width="72" height="72"><span class="wordmark">MascotRL</span></a><a class="paper-link" href="paper/xai_portfolio_rl.pdf">Working paper</a></header>
+      <h1>Try it on your own stocks</h1>
+      <p>Bring a spreadsheet of daily prices. The page looks at five ways those prices have moved, keeps at most a hundred names, and ignores a trade so small the toll would eat it. The file stays on your computer. Any stocks will do.</p>
+      <div class="chips">
+        <button type="button" class="chip" id="pick-daily" aria-pressed="true"><span>Change every day</span></button>
+        <button type="button" class="chip" id="pick-monthly" aria-pressed="false"><span>Change once a month</span></button>
+      </div>
+      <label class="drop" for="file"><strong>Choose a spreadsheet</strong><span class="hint">One row per stock per day. Three columns: the date, your name for the stock, and a price index that grows with the stock (date, instrument_id, total_return_index).</span><input id="file" type="file" accept=".csv,text/csv"></label>
+      <p class="hint" id="book-msg">Nothing is split until a file is here. You need at least a hundred stocks with about a year of history behind the day you pick.</p>
+      <div class="stepper">
+        <button type="button" id="book-prev">Previous day</button>
+        <p class="big-date" id="book-date-label">No day yet</p>
+        <button type="button" id="book-next">Next day</button>
+      </div>
+      <input id="book-date" type="hidden" value="0">
+      <label class="hint">Money to split <input id="book-cash" type="number" min="1" step="100" value="10000"></label>
+      <table id="weights">
+        <caption>How the money is split on the day you chose. A stock left at zero is omitted. Dollars are its share of the money you typed.</caption>
+        <thead><tr><th>Name</th><th class="num">Weight</th><th class="num">Dollars</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p id="book-summary"></p>
+      <h2>The book we trained</h2>
+      <p>Below is one book from the study, January 2014 through December 2024. Your spreadsheet, above, is a separate try.</p>
+      <div class="stepper">
+        <button type="button" id="session-prev">Previous day</button>
+        <p class="big-date" id="session-label">No day yet</p>
+        <button type="button" id="session-next">Next day</button>
+      </div>
+      <input id="session" type="hidden" value="0">
+      <div id="held" class="chart"></div>
+      <p id="stored"></p>
+      <p class="caption">Two habits. The daily book, on a typical day, holds 372 of 400 stocks. The monthly book holds 295, and it owns nothing in the first weeks of 2014. An even split of 400 stocks has a tightness of 0.0025. Tightness here means how bunched the money is. A higher number means fewer stocks carry more of it.</p>
+      <table>
+        <caption>How bunched the money is, and how much of the book changes hands.</caption>
+        <thead><tr><th>Book</th><th class="num">How bunched</th><th class="num">Share that changes</th></tr></thead>
+        <tbody>
+          <tr><td>Daily book</td><td class="num">0.004</td><td class="num">0.022</td></tr>
+          <tr><td>Monthly path</td><td class="num">0.009</td><td class="num">0.013</td></tr>
+          <tr><td>Equal weight, 400 names</td><td class="num">0.0025</td><td class="num"></td></tr>
+        </tbody>
+      </table>
+      <footer class="footer"><p>Results are backtested and are not investment advice.</p></footer>
+    </div>
+    <nav class="margin" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="desk.html">Desk</a>
+      <a href="cube.html">Feature cube</a>
+      <a href="book.html" aria-current="page">Book</a>
+    </nav>
+    <small class="credit">Silhouettes: Michaud, Sayol, Mauel, Jablunovsky, Sayol, Sayol. PhyloPic, CC0.</small>
+  </div>
+  <script src="vendor/plotly-basic.min.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/book.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/MascotRL/">
+  <title>Feature cube. MascotRL</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#view">Skip to the cube</a>
+  <div class="sheet">
+    <div class="paper">
+      <header class="mast"><a class="brand" href="index.html"><img src="assets/mascots/MascotRL_logo.png" alt="" width="72" height="72"><span class="wordmark">MascotRL</span></a><a class="paper-link" href="paper/xai_portfolio_rl.pdf">Working paper</a></header>
+      <h1>What the book saw yesterday</h1>
+      <p>Before it chooses stocks, the book looks backward, never forward. This picture is a small model of that look. The clues have the same names as in the real work. The prices themselves are made up, so you can turn the picture without opening a licensed database.</p>
+      <div class="chips" id="who"></div>
+      <p id="caption">Cheetah drops the stocks that do not make the cut, in a book of 100 names.</p>
+      <canvas id="view" class="cube-view" width="900" height="520"></canvas>
+      <p class="hint">Drag to turn it. Scroll to step closer. Click a brick and read what that clue meant that day.</p>
+      <div class="stepper">
+        <button type="button" id="prev-day">Previous day</button>
+        <p class="big-date" id="when-label">No day yet</p>
+        <button type="button" id="next-day">Next day</button>
+      </div>
+      <p id="plain">Click a brick. You will get one sentence about that stock and that day.</p>
+      <p class="caption">Longer windows, such as a full year of history, stay empty near the start. There has not been enough time yet.</p>
+      <footer class="footer"><p>Results are backtested and are not investment advice.</p></footer>
+    </div>
+    <nav class="margin" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="desk.html">Desk</a>
+      <a href="cube.html" aria-current="page">Feature cube</a>
+      <a href="book.html">Book</a>
+    </nav>
+    <small class="credit">Silhouettes: Michaud, Sayol, Mauel, Jablunovsky, Sayol, Sayol. PhyloPic, CC0.</small>
+  </div>
+  <script type="module" src="js/cube.js"></script>
+</body>
+</html>

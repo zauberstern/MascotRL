@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/MascotRL/">
+  <title>Desk. MascotRL</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#chart">Skip to the chart</a>
+  <div class="sheet">
+    <div class="paper">
+      <header class="mast"><a class="brand" href="index.html"><img src="assets/mascots/MascotRL_logo.png" alt="" width="72" height="72"><span class="wordmark">MascotRL</span></a><a class="paper-link" href="paper/xai_portfolio_rl.pdf">Working paper</a></header>
+      <h1 id="chart">Staff the years</h1>
+      <p>Imagine the decade is a rota. Click Cheetah, then click 2016, and that year your money follows the trend follower. Click 2016 again and the year goes back to an even split, the same amount in every stock. Navy is the rota you built. Gold is the even split for the whole decade.</p>
+      <div class="money">
+        <label>Money you start with <input id="cash" type="number" min="1" step="100" value="10000"></label>
+        <p>Your rota ends at <strong id="mix-end"></strong></p>
+        <p>Even split ends at <strong id="ew-end"></strong></p>
+        <p>Smoothness of your rota <strong id="mix-sh"></strong></p>
+        <p>Smoothness of the even split <strong id="ew-sh"></strong></p>
+      </div>
+      <p class="hint">Smoothness is the Sharpe ratio: the return you got, set next to how bumpy the days were. Both numbers stay on the page.</p>
+      <div id="plot" class="chart"></div>
+      <div id="animals" class="chips"></div>
+      <p class="hint" id="year-hint">Pick a habit, then a year.</p>
+      <div id="years" class="years"></div>
+      <p id="state"></p>
+      <footer class="footer"><p>Results are backtested and are not investment advice.</p></footer>
+    </div>
+    <nav class="margin" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="desk.html" aria-current="page">Desk</a>
+      <a href="cube.html">Feature cube</a>
+      <a href="book.html">Book</a>
+    </nav>
+    <small class="credit">Silhouettes: Michaud, Sayol, Mauel, Jablunovsky, Sayol, Sayol. PhyloPic, CC0.</small>
+  </div>
+  <script src="vendor/plotly-basic.min.js"></script>
+  <script src="js/desk.js"></script>
+</body>
+</html>
