@@ -30,7 +30,7 @@ The name is none of those parts. If the leading habit does not clear the runner-
 
 ## Six habits
 
-A cheetah adds to what has already been moving the same way. A fox sells what ran up and buys what fell. A tortoise keeps the day's risk small. A magpie puts almost all the money on the loudest score. A hummingbird turns the list over often. An owl is the filing when no habit leads by 0.25.
+A cheetah adds to what has already been moving the same way, and it cuts what has not. A fox sells what ran up and buys what fell. A tortoise keeps the day's risk small and prefers the quiet names. A magpie puts almost all the money on the loudest score, so one stock can be nearly the whole book. A hummingbird turns the list over often, and the toll is part of that habit. An owl is the filing when no habit leads the runner-up by 0.25. The scores sit close together, so the reading stays general.
 
 Of 179 books that cleared the screen, the reading named 11 cheetahs, 32 foxes, 18 tortoises, 21 magpies, 19 hummingbirds, and 78 owls. The six counts add to 179. The owl is the largest filing.
 
@@ -51,6 +51,36 @@ Of 106 books that already had a design name, the later reading agreed on the str
 ![Designed name against the name the scorecard filed, 106 books](site/assets/designed_observed.png)
 
 Each cell is a count. The rows are the name the design carried. The columns are the name the scorecard filed. The diagonal of the five named habits is empty. The 25 books that share a label sit in the residual cell, filed here as mixed, which is the owl in the census. The strict match of 7 is a tighter rule than sharing that label.
+
+## Where those 106 books sit
+
+The 106 are not the census of 179. They are the books that already carried a design name. The legend on the next picture is the name the scorecard filed for those 106: 11 trend, 23 contrarian, 18 risk, 2 speculator, 19 rotator, and 33 mixed. Those six numbers add to 106. They are not the 11, 32, 18, 21, 19, and 78 of the census. A reader who mixes the two tables will think the study found two speculators. The census found 21.
+
+![Concentration against one-way turnover for the 106 books that already had a design name](site/assets/hhi_turnover.png)
+
+Concentration is the Herfindahl of the weights. One-way turnover is half the sum of absolute weight changes. The two books filed as speculator sit toward high concentration, and one of them barely turns over. The risk managers sit in a tight knot at low concentration and low turnover. The contrarians are the high cloud: several of them turn over more than half the book and are not especially concentrated. Trend followers stretch from a concentrated book that still trades to a book that is mostly one name and quieter. Mixed books appear in every region. The habit name and the cloud are related. They are not the same point.
+
+![Absolute gap versus an even split for the same 106 books](site/assets/l1_screen.png)
+
+The vertical line is the screen, at a gap of 0.25. Every book in this picture clears it, which is why these 106 are in the designed-name count. The mass is not piled against the line. A handful sit just to the right of 0.25. Then a gap. Then a block around a gap of 1, and a taller block near 1.75 to 2, which on 100 names is close to holding a few stocks and leaving the rest empty. Clearing the screen is common in this cut. Hugging the screen is not.
+
+## The collar decides the shape
+
+On 60 books, one network and one torso, the grade inside a collar barely moves the turnover. The median one-way turnover shifts by about 0.001 when the grade changes inside softmax, by about 0.004 inside bounded tanh, and by about 0.066 inside the sparse collar. The collars themselves sit near 0.068, 0.047, and 0.43. Lag-1 autocorrelation of the weights stays near 0.92, 0.60, and 0.41. Changing the grade is not a change of the collar. The collar is what separates those books.
+
+![One-way turnover for five seeds at each grade, collar held fixed](site/assets/reward_within_head.png)
+
+Read the vertical scales before comparing panels. Softmax lives between about 0.05 and 0.07. Bounded tanh lives between about 0.044 and 0.052. The sparse collar lives between about 0.28 and 0.60. A seed moves inside its panel. It does not jump from one panel into another. The grade names on the horizontal axis are mean-variance, mark-to-market, a semi-quadratic penalty, and a squared error. Four grades, three clouds, and the clouds do not overlap.
+
+![Median count of exact zeros in the stored weights, by collar](site/assets/exact_zeros.png)
+
+The count is the mean over every tenth day of the stored path, then the median across books with that collar. Softmax and bounded tanh sit on the axis: those collars almost never write an exact zero. The sparse collar parks most of a hundred names at zero. The 1.5-entmax collar does the same, a little less extremely. A book can still be concentrated with a softmax collar. The speculator sheet is that case: the collar is softmax, so it writes no exact zero, and the concentration of the stored weights is still 0.99, because the hunches that reach the collar are already peaked.
+
+Matched twins keep the rest of the design and swap the collar. On 58 pairs the gap in absolute distance from an even split, sparse minus softmax, has median 1.673. A paired test on those 58 gives p = 1.75e-11. The twins are not the census, and they are not a regression of habit on design. They are the same book asked to write weights two ways.
+
+![Gap in distance from an even split, sparse collar minus softmax, 58 matched pairs](site/assets/twin_l1.png)
+
+Most of the pairs pile up between about 1.5 and 1.9. A few pairs sit near zero, so the swap does not move every book. The center of the picture is a large move. Leaving names at zero, rather than leaving every name a crumb, is what pushes the list away from an even split.
 
 ## One morning in March 2019
 
@@ -74,9 +104,9 @@ The configured charge is five basis points on the full change in weights, in tra
 
 ![Three median costs next to the five that were configured](site/assets/cost.svg)
 
-These are the median costs that showed up, in basis points, next to the five that were configured. The bars are a bill for changing the holdings. The sample is 105 books.
+These are the median costs that showed up, in basis points, next to the five that were configured. The bars are a bill for changing the holdings. The sample is 105 books. The gold line is the five, drawn through the bars so the gap is visible, with the label kept above the plot.
 
-When a stock can be left at zero, the median was 6.5 basis points. When every stock keeps a crumb, it was 10.2. When each score is capped and the book is filled again, it was 13.4. A fourth collar, 1.5-entmax, sat near 7.0 and is not drawn. A few books sit near 120 basis points. They are not the center of the bars.
+When a stock can be left at zero, the median was 6.5 basis points. Entmax 1.5, which can also leave names empty, sat near 7.0. When every stock keeps a crumb, the median was 10.2. When each score is capped and the book is filled again, it was 13.4. A few softmax and bounded-tanh books sit near 120 basis points. They are not the center of the bars. The behaviour card reports one-way turnover, about half the full change, so the same cost per unit of that card's turnover is about twice the figure. The collar that writes zeros is the cheaper bill. The collar that keeps a crumb, and the collar that caps and refills, move more weight and pay more.
 
 ## What one dollar became
 
@@ -90,9 +120,23 @@ A line that finishes above the gold line was selected because its compounded net
 
 ## A book of 400 names
 
-Three books were trained on a width of 400 names and sit outside the census of 179. On the stored daily path, a typical day holds 372 of those 400 names. Daily mean concentration, the Herfindahl of the weights, is 0.004. An even split of 400 names sits at 0.0025. The monthly book holds 295 names on a typical day. The book stored from the plain network and the book stored from the transformer are the same holdings. The census above does not include these three books.
+Three books were trained on a width of 400 names and sit outside the census of 179. The style matrix does not cover them, which is why they are not in the six counts. They are a check on two choices the census cannot see: the torso, and whether the book changes every day or once a month. One book uses a plain network. One uses a transformer. One uses a transformer and changes once a month.
 
-A cap of 100 names appears on the site when a visitor scores their own file. That cap is not the trained path.
+On the stored daily path, a typical day holds 372 of those 400 names. Mean concentration is 0.004. An even split of 400 names sits at 0.0025. Mean one-way turnover is 0.022. The monthly book holds 295 names on a typical day, with mean concentration 0.009 and mean one-way turnover 0.013. On every tenth day the share of names at exact zero is 0.10 for the two daily books and 0.29 for the monthly book. The pictured trend follower, by contrast, has turnover 0.27 and concentration 0.58. The 400-name books stay spread out.
+
+![Share of names at exact zero on the 400-name books](site/assets/k400_zeros.png)
+
+The two daily bars are the same height. The monthly bar is about three times as tall. Waiting a month to trade leaves more names at zero. It does not turn the book into the one-name sparse book from 1 August 2024.
+
+![Concentration through time on the 400-name books](site/assets/k400_hhi.png)
+
+The dotted line is an even split of 400 names, at 0.0025. After the first sessions, the plain network and the daily transformer lie on top of each other, just above that line. The monthly book stays higher, mostly between about 0.008 and 0.012, with a stretch in the middle of the sample where it steps down toward the daily books and then steps back up. The two daily torsos stored the same holdings. A different torso did not write a different list. A different calendar did.
+
+![Stored after-cost path for the three 400-name books](site/assets/k400_cum.png)
+
+The dashed line sits on the solid line because those two books are the same stored path. The third line is the monthly book. The picture is that coincidence, and the gap between a daily change and a monthly change. It is not a test against an even split, and these three books are not in the census.
+
+A cap of 100 names appears on the site when a visitor scores their own file. That cap is not the trained path. The trained daily book holds 372 names on a typical day.
 
 ## How the sample was cut
 
